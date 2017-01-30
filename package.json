@@ -10,8 +10,16 @@
   "author": "Tyrus Brenc",
   "license": "MIT",
   "dependencies": {
+    "co-body": "^4.2.0",
+    "co-views": "^2.1.0",
     "koa": "^1.2.4",
+    "koa-logger": "^1.3.1",
     "koa-route": "^2.4.2",
-    "react": "^15.4.2"
+    "nodemon": "^1.11.0",
+    "react": "^15.4.2",
+    "swig": "^1.4.2"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
   }
 }

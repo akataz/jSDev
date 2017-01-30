@@ -3,7 +3,7 @@
  */
 
 var render = require('./lib/render');
-// var logger = require('koa-logger');
+var logger = require('koa-logger');
 var route = require('koa-route');
 var parse = require('co-body');
 var koa = require('koa');
@@ -11,59 +11,34 @@ var app = module.exports = koa();
 
 // "database"
 
-var posts = [];
-var data = JSON.stringify("Allyourbasebelongtous");
+var data = "dogs"
+JSON.stringify("Allyourbasebelongtous");
 
 // middleware
 
-//app.use(logger());
+app.use(logger());
 
 // route middleware
 
-app.use(route.get('/', list));
-app.use(route.get('/post/new', add));
+app.use(route.get('/', show));
+app.use(route.get('/thatCoolThing', show));
 
 
 // route definitions
 
-/**
- * Post listing.
- */
-
-function *list() {
-  this.body = yield render('list', { posts: posts });
-}
-
-/**
- * Show creation form.
- */
-
-function *add() {
-  this.body = yield render('new');
-}
 
 /**
  * Show post :id.
  */
 
-function *show(id) {
-  var post = posts[id];
-  if (!post) this.throw(404, 'invalid post id');
-  this.body = yield render('show', { post: post });
-}
-
-/**
- * Create a post.
- */
-
-function *create() {
-  var post = yield parse(this);
-  var id = posts.push(post) - 1;
-  post.created_at = new Date();
-  post.id = id;
-  this.redirect('/');
+function *show() {
+  if (!data) this.throw(404, 'there is no data');
+  console.log("this point got hit congrats dude!")
+  //this.body = yield render('show', { data: data });
+  this.body = "dogs";
 }
 
 // listen
 
 if (!module.parent) app.listen(3000);
+console.log("Now listening on port 3000!")
