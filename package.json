@@ -1,0 +1,16 @@
+{
+  "name": "sweg",
+  "version": "1.0.0",
+  "description": "backend route to handle GET req for JSON data",
+  "main": "index.js",
+  "repository": {
+    "url": "y",
+    "type": "git"
+  },
+  "author": "Tyrus Brenc",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^1.2.4",
+    "react": "^15.4.2"
+  }
+}
